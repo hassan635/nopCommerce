@@ -47,9 +47,9 @@ namespace Nop.Data
         /// Get the entity entry
         /// </summary>
         /// <param name="id">Entity entry identifier</param>
-        /// <param name="getCacheKey">Function to get a cache key; pass null to don't cache; return null from this function to use the default key</param>
+        /// <param name="cacheKey">Cache key; pass null to don't cache</param>
         /// <returns>Entity entry</returns>
-        public virtual TEntity GetById(int? id, Func<IStaticCacheManager, CacheKey> getCacheKey = null)
+        public virtual TEntity GetById(int? id, CacheKey cacheKey)
         {
             if (!id.HasValue || id == 0)
                 return null;
@@ -59,12 +59,12 @@ namespace Nop.Data
                 return Entities.FirstOrDefault(entity => entity.Id == Convert.ToInt32(id));
             }
 
-            if (getCacheKey == null)
+            if (cacheKey == null)
                 return getEntity();
 
-            //caching
-            var cacheKey = getCacheKey(_staticCacheManager)
-                ?? _staticCacheManager.PrepareKeyForDefaultCache(NopEntityCacheDefaults<TEntity>.ByIdCacheKey, id);
+            if (cacheKey.Key.Equals(NopEntityCacheDefaults<TEntity>.DefaultCacheKey.Key))
+                cacheKey = _staticCacheManager.PrepareKeyForDefaultCache(NopEntityCacheDefaults<TEntity>.ByIdCacheKey, id);
+
             return _staticCacheManager.Get(cacheKey, getEntity);
         }
 

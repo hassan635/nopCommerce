@@ -377,7 +377,7 @@ namespace Nop.Services.Catalog
         /// <returns>Category</returns>
         public virtual Category GetCategoryById(int categoryId)
         {
-            return _categoryRepository.GetById(categoryId, cache => default);
+            return _categoryRepository.GetById(categoryId, NopEntityCacheDefaults<Category>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -613,7 +613,7 @@ namespace Nop.Services.Catalog
         /// <returns>Product category mapping</returns>
         public virtual ProductCategory GetProductCategoryById(int productCategoryId)
         {
-            return _productCategoryRepository.GetById(productCategoryId, cache => default);
+            return _productCategoryRepository.GetById(productCategoryId, NopEntityCacheDefaults<ProductCategory>.DefaultCacheKey);
         }
 
         /// <summary>

@@ -34,7 +34,8 @@ namespace Nop.Services.Orders
         private readonly IRepository<RecurringPayment> _recurringPaymentRepository;
         private readonly IRepository<RecurringPaymentHistory> _recurringPaymentHistoryRepository;
         private readonly IShipmentService _shipmentService;
-
+        private readonly IStaticCacheManager _staticCacheManager;
+        
         #endregion
 
         #region Ctor
@@ -49,7 +50,8 @@ namespace Nop.Services.Orders
             IRepository<ProductWarehouseInventory> productWarehouseInventoryRepository,
             IRepository<RecurringPayment> recurringPaymentRepository,
             IRepository<RecurringPaymentHistory> recurringPaymentHistoryRepository,
-            IShipmentService shipmentService)
+            IShipmentService shipmentService,
+            IStaticCacheManager staticCacheManager)
         {
             _productService = productService;
             _addressRepository = addressRepository;
@@ -62,6 +64,7 @@ namespace Nop.Services.Orders
             _recurringPaymentRepository = recurringPaymentRepository;
             _recurringPaymentHistoryRepository = recurringPaymentHistoryRepository;
             _shipmentService = shipmentService;
+            _staticCacheManager = staticCacheManager;
         }
 
         #endregion
@@ -77,8 +80,7 @@ namespace Nop.Services.Orders
         /// <returns>Order</returns>
         public virtual Order GetOrderById(int orderId)
         {
-            return _orderRepository.GetById(orderId,
-                cache => cache.PrepareKeyForShortTermCache(NopEntityCacheDefaults<Order>.ByIdCacheKey, orderId));
+            return _orderRepository.GetById(orderId, _staticCacheManager.PrepareKeyForShortTermCache(NopEntityCacheDefaults<Order>.ByIdCacheKey, orderId));
         }
 
         /// <summary>
@@ -420,8 +422,7 @@ namespace Nop.Services.Orders
         /// <returns>Order item</returns>
         public virtual OrderItem GetOrderItemById(int orderItemId)
         {
-            return _orderItemRepository.GetById(orderItemId,
-                cache => cache.PrepareKeyForShortTermCache(NopEntityCacheDefaults<OrderItem>.ByIdCacheKey, orderItemId));
+            return _orderItemRepository.GetById(orderItemId, _staticCacheManager.PrepareKeyForShortTermCache(NopEntityCacheDefaults<OrderItem>.ByIdCacheKey, orderItemId));
         }
 
         /// <summary>
@@ -845,7 +846,7 @@ namespace Nop.Services.Orders
         /// <returns>Recurring payment</returns>
         public virtual RecurringPayment GetRecurringPaymentById(int recurringPaymentId)
         {
-            return _recurringPaymentRepository.GetById(recurringPaymentId, cache => default);
+            return _recurringPaymentRepository.GetById(recurringPaymentId, NopEntityCacheDefaults<RecurringPayment>.DefaultCacheKey);
         }
 
         /// <summary>

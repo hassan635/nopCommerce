@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Shipping;
 using Nop.Data;
 
@@ -39,7 +40,7 @@ namespace Nop.Services.Shipping.Date
         /// <returns>Delivery date</returns>
         public virtual DeliveryDate GetDeliveryDateById(int deliveryDateId)
         {
-            return _deliveryDateRepository.GetById(deliveryDateId, cache => default);
+            return _deliveryDateRepository.GetById(deliveryDateId, NopEntityCacheDefaults<DeliveryDate>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -96,7 +97,7 @@ namespace Nop.Services.Shipping.Date
         /// <returns>Product availability range</returns>
         public virtual ProductAvailabilityRange GetProductAvailabilityRangeById(int productAvailabilityRangeId)
         {
-            return productAvailabilityRangeId != 0 ? _productAvailabilityRangeRepository.GetById(productAvailabilityRangeId, cache => default) : null;
+            return productAvailabilityRangeId != 0 ? _productAvailabilityRangeRepository.GetById(productAvailabilityRangeId, NopEntityCacheDefaults<ProductAvailabilityRange>.DefaultCacheKey) : null;
         }
 
         /// <summary>

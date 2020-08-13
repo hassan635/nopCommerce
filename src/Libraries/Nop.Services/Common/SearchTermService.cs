@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Common;
 using Nop.Data;
 
@@ -43,7 +44,7 @@ namespace Nop.Services.Common
         /// <returns>Search term</returns>
         public virtual SearchTerm GetSearchTermById(int searchTermId)
         {
-            return _searchTermRepository.GetById(searchTermId, cache => default);
+            return _searchTermRepository.GetById(searchTermId, NopEntityCacheDefaults<SearchTerm>.DefaultCacheKey);
         }
 
         /// <summary>

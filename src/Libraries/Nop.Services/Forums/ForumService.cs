@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Forums;
 using Nop.Core.Domain.Seo;
@@ -241,7 +242,7 @@ namespace Nop.Services.Forums
         /// <returns>Forum group</returns>
         public virtual ForumGroup GetForumGroupById(int forumGroupId)
         {
-            return _forumGroupRepository.GetById(forumGroupId, cache => default);
+            return _forumGroupRepository.GetById(forumGroupId, NopEntityCacheDefaults<ForumGroup>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -315,7 +316,7 @@ namespace Nop.Services.Forums
         /// <returns>Forum</returns>
         public virtual Forum GetForumById(int forumId)
         {
-            return _forumRepository.GetById(forumId, cache => default);
+            return _forumRepository.GetById(forumId, NopEntityCacheDefaults<Forum>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -402,7 +403,7 @@ namespace Nop.Services.Forums
         /// <returns>Forum Topic</returns>
         public virtual ForumTopic GetTopicById(int forumTopicId, bool increaseViews)
         {
-            var forumTopic = _forumTopicRepository.GetById(forumTopicId, cache => default);
+            var forumTopic = _forumTopicRepository.GetById(forumTopicId, NopEntityCacheDefaults<ForumTopic>.DefaultCacheKey);
 
             if (forumTopic == null)
                 return null;
@@ -616,7 +617,7 @@ namespace Nop.Services.Forums
         /// <returns>Forum Post</returns>
         public virtual ForumPost GetPostById(int forumPostId)
         {
-            return _forumPostRepository.GetById(forumPostId, cache => default);
+            return _forumPostRepository.GetById(forumPostId, NopEntityCacheDefaults<ForumPost>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -742,7 +743,7 @@ namespace Nop.Services.Forums
         /// <returns>Private message</returns>
         public virtual PrivateMessage GetPrivateMessageById(int privateMessageId)
         {
-            return _forumPrivateMessageRepository.GetById(privateMessageId, cache => default);
+            return _forumPrivateMessageRepository.GetById(privateMessageId, NopEntityCacheDefaults<PrivateMessage>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -845,7 +846,7 @@ namespace Nop.Services.Forums
         /// <returns>Forum subscription</returns>
         public virtual ForumSubscription GetSubscriptionById(int forumSubscriptionId)
         {
-            return _forumSubscriptionRepository.GetById(forumSubscriptionId, cache => default);
+            return _forumSubscriptionRepository.GetById(forumSubscriptionId, NopEntityCacheDefaults<ForumSubscription>.DefaultCacheKey);
         }
 
         /// <summary>

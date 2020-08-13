@@ -6,6 +6,7 @@ using System.Threading;
 using LinqToDB;
 using Microsoft.AspNetCore.Http;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Media;
 using Nop.Core.Infrastructure;
@@ -657,7 +658,7 @@ namespace Nop.Services.Media
         /// <returns>Picture</returns>
         public virtual Picture GetPictureById(int pictureId)
         {
-            return _pictureRepository.GetById(pictureId, cache => default);
+            return _pictureRepository.GetById(pictureId, NopEntityCacheDefaults<Picture>.DefaultCacheKey);
         }
 
         /// <summary>

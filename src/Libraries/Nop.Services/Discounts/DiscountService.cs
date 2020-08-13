@@ -147,7 +147,7 @@ namespace Nop.Services.Discounts
         /// <returns>Discount</returns>
         public virtual Discount GetDiscountById(int discountId)
         {
-            return _discountRepository.GetById(discountId, cache => default);
+            return _discountRepository.GetById(discountId, NopEntityCacheDefaults<Discount>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -376,7 +376,7 @@ namespace Nop.Services.Discounts
         /// <param name="discountRequirementId">Discount requirement identifier</param>
         public virtual DiscountRequirement GetDiscountRequirementById(int discountRequirementId)
         {
-            return _discountRequirementRepository.GetById(discountRequirementId, cache => default);
+            return _discountRequirementRepository.GetById(discountRequirementId, NopEntityCacheDefaults<DiscountRequirement>.DefaultCacheKey);
         }
 
         /// <summary>

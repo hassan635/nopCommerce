@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Events;
@@ -59,7 +60,7 @@ namespace Nop.Services.Orders
         /// <returns>Gift card entry</returns>
         public virtual GiftCard GetGiftCardById(int giftCardId)
         {
-            return _giftCardRepository.GetById(giftCardId, cache => default);
+            return _giftCardRepository.GetById(giftCardId, NopEntityCacheDefaults<GiftCard>.DefaultCacheKey);
         }
 
         /// <summary>

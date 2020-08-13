@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Orders;
@@ -365,7 +366,7 @@ namespace Nop.Services.Shipping
         /// <returns>Shipment tracker</returns>
         public virtual IShipmentTracker GetShipmentTracker(Shipment shipment)
         {
-            var order = _orderRepository.GetById(shipment.OrderId, cache => default);
+            var order = _orderRepository.GetById(shipment.OrderId, NopEntityCacheDefaults<Order>.DefaultCacheKey);
 
             if (!order.PickupInStore)
             {

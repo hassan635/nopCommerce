@@ -76,7 +76,7 @@ namespace Nop.Services.Topics
         /// <returns>Topic</returns>
         public virtual Topic GetTopicById(int topicId)
         {
-            return _topicRepository.GetById(topicId, cache => default);
+            return _topicRepository.GetById(topicId, NopEntityCacheDefaults<Topic>.DefaultCacheKey);
         }
 
         /// <summary>

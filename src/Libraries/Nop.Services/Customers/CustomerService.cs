@@ -376,8 +376,7 @@ namespace Nop.Services.Customers
         /// <returns>A customer</returns>
         public virtual Customer GetCustomerById(int customerId)
         {
-            return _customerRepository.GetById(customerId,
-                cache => cache.PrepareKeyForShortTermCache(NopEntityCacheDefaults<Customer>.ByIdCacheKey, customerId));
+            return _customerRepository.GetById(customerId, _staticCacheManager.PrepareKeyForShortTermCache(NopEntityCacheDefaults<Customer>.ByIdCacheKey, customerId));
         }
 
         /// <summary>
@@ -1055,7 +1054,7 @@ namespace Nop.Services.Customers
         /// <returns>Customer role</returns>
         public virtual CustomerRole GetCustomerRoleById(int customerRoleId)
         {
-            return _customerRoleRepository.GetById(customerRoleId, cache => default);
+            return _customerRoleRepository.GetById(customerRoleId, NopEntityCacheDefaults<CustomerRole>.DefaultCacheKey);
         }
 
         /// <summary>

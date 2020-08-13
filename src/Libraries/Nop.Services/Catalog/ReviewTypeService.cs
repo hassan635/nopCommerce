@@ -54,7 +54,7 @@ namespace Nop.Services.Catalog
         /// <returns>Review type</returns>
         public virtual ReviewType GetReviewTypeById(int reviewTypeId)
         {
-            return _reviewTypeRepository.GetById(reviewTypeId, cache => default);
+            return _reviewTypeRepository.GetById(reviewTypeId, NopEntityCacheDefaults<ReviewType>.DefaultCacheKey);
         }
 
         /// <summary>

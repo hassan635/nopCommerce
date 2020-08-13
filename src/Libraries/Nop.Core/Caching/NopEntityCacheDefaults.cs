@@ -50,5 +50,10 @@
         /// Gets a key pattern to clear cache
         /// </summary>
         public static string AllPrefix => $"Nop.{EntityTypeName}.all.";
+
+        /// <summary>
+        /// Gets a cache key which indicates that nopCommerce would use the default one
+        /// </summary>
+        public static CacheKey DefaultCacheKey => new CacheKey($"Nop.{EntityTypeName}.DefaultCacheKey");
     }
 }

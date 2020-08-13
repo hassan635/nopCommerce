@@ -61,7 +61,7 @@ namespace Nop.Services.Security
         /// <returns>ACL record</returns>
         public virtual AclRecord GetAclRecordById(int aclRecordId)
         {
-            return _aclRecordRepository.GetById(aclRecordId, cache => default);
+            return _aclRecordRepository.GetById(aclRecordId, NopEntityCacheDefaults<AclRecord>.DefaultCacheKey);
         }
 
         /// <summary>

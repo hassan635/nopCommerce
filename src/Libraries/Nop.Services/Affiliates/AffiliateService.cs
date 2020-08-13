@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Affiliates;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Orders;
@@ -58,7 +59,7 @@ namespace Nop.Services.Affiliates
         /// <returns>Affiliate</returns>
         public virtual Affiliate GetAffiliateById(int affiliateId)
         {
-            return _affiliateRepository.GetById(affiliateId, cache => default);
+            return _affiliateRepository.GetById(affiliateId, NopEntityCacheDefaults<Affiliate>.DefaultCacheKey);
         }
 
         /// <summary>

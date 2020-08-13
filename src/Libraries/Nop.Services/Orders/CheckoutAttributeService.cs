@@ -107,7 +107,7 @@ namespace Nop.Services.Orders
         /// <returns>Checkout attribute</returns>
         public virtual CheckoutAttribute GetCheckoutAttributeById(int checkoutAttributeId)
         {
-            return _checkoutAttributeRepository.GetById(checkoutAttributeId, cache => default);
+            return _checkoutAttributeRepository.GetById(checkoutAttributeId, NopEntityCacheDefaults<CheckoutAttribute>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace Nop.Services.Orders
         /// <returns>Checkout attribute value</returns>
         public virtual CheckoutAttributeValue GetCheckoutAttributeValueById(int checkoutAttributeValueId)
         {
-            return _checkoutAttributeValueRepository.GetById(checkoutAttributeValueId, cache => default);
+            return _checkoutAttributeValueRepository.GetById(checkoutAttributeValueId, NopEntityCacheDefaults<CheckoutAttributeValue>.DefaultCacheKey);
         }
 
         /// <summary>

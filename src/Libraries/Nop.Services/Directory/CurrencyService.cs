@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Directory;
 using Nop.Data;
 using Nop.Services.Stores;
@@ -57,7 +58,7 @@ namespace Nop.Services.Directory
         /// <returns>Currency</returns>
         public virtual Currency GetCurrencyById(int currencyId)
         {
-            return _currencyRepository.GetById(currencyId, cache => default);
+            return _currencyRepository.GetById(currencyId, NopEntityCacheDefaults<Currency>.DefaultCacheKey);
         }
 
         /// <summary>

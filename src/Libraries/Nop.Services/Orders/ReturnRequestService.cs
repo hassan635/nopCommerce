@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Orders;
 using Nop.Data;
 
@@ -131,7 +132,7 @@ namespace Nop.Services.Orders
         /// <returns>Return request action</returns>
         public virtual ReturnRequestAction GetReturnRequestActionById(int returnRequestActionId)
         {
-            return _returnRequestActionRepository.GetById(returnRequestActionId, cache => default);
+            return _returnRequestActionRepository.GetById(returnRequestActionId, NopEntityCacheDefaults<ReturnRequestAction>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -200,7 +201,7 @@ namespace Nop.Services.Orders
         /// <returns>Return request reason</returns>
         public virtual ReturnRequestReason GetReturnRequestReasonById(int returnRequestReasonId)
         {
-            return _returnRequestReasonRepository.GetById(returnRequestReasonId, cache => default);
+            return _returnRequestReasonRepository.GetById(returnRequestReasonId, NopEntityCacheDefaults<ReturnRequestReason>.DefaultCacheKey);
         }
 
         /// <summary>

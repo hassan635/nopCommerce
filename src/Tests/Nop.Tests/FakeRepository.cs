@@ -102,7 +102,7 @@ namespace Nop.Tests
             throw new NotImplementedException();
         }
         
-        public T GetById(int? id, Func<IStaticCacheManager, CacheKey> getCacheKey = null)
+        public T GetById(int? id, CacheKey cacheKey = null)
         {
             return _table.FirstOrDefault(x => x.Id == Convert.ToInt32(id));
         }

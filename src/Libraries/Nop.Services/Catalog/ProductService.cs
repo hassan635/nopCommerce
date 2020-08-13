@@ -341,7 +341,7 @@ namespace Nop.Services.Catalog
         /// <returns>Product</returns>
         public virtual Product GetProductById(int productId)
         {
-            return _productRepository.GetById(productId, cache => default);
+            return _productRepository.GetById(productId, NopEntityCacheDefaults<Product>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -1619,7 +1619,7 @@ namespace Nop.Services.Catalog
             if (pwi == null)
                 return 0;
 
-            var shipment = _shipmentRepository.GetById(shipmentItem.ShipmentId, cache => default);
+            var shipment = _shipmentRepository.GetById(shipmentItem.ShipmentId, NopEntityCacheDefaults<Shipment>.DefaultCacheKey);
 
             //not shipped yet? hence "BookReservedInventory" method was not invoked
             if (!shipment.ShippedDateUtc.HasValue)
@@ -1679,7 +1679,7 @@ namespace Nop.Services.Catalog
         /// <returns>Related product</returns>
         public virtual RelatedProduct GetRelatedProductById(int relatedProductId)
         {
-            return _relatedProductRepository.GetById(relatedProductId, cache => default);
+            return _relatedProductRepository.GetById(relatedProductId, NopEntityCacheDefaults<RelatedProduct>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -1768,7 +1768,7 @@ namespace Nop.Services.Catalog
         /// <returns>Cross-sell product</returns>
         public virtual CrossSellProduct GetCrossSellProductById(int crossSellProductId)
         {
-            return _crossSellProductRepository.GetById(crossSellProductId, cache => default);
+            return _crossSellProductRepository.GetById(crossSellProductId, NopEntityCacheDefaults<CrossSellProduct>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -1909,7 +1909,7 @@ namespace Nop.Services.Catalog
         /// <returns>Tier price</returns>
         public virtual TierPrice GetTierPriceById(int tierPriceId)
         {
-            return _tierPriceRepository.GetById(tierPriceId, cache => default);
+            return _tierPriceRepository.GetById(tierPriceId, NopEntityCacheDefaults<TierPrice>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -1990,7 +1990,7 @@ namespace Nop.Services.Catalog
         /// <returns>Product picture</returns>
         public virtual ProductPicture GetProductPictureById(int productPictureId)
         {
-            return _productPictureRepository.GetById(productPictureId, cache => default);
+            return _productPictureRepository.GetById(productPictureId, NopEntityCacheDefaults<ProductPicture>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -2130,7 +2130,7 @@ namespace Nop.Services.Catalog
         /// <returns>Product review</returns>
         public virtual ProductReview GetProductReviewById(int productReviewId)
         {
-            return _productReviewRepository.GetById(productReviewId, cache => default);
+            return _productReviewRepository.GetById(productReviewId, NopEntityCacheDefaults<ProductReview>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -2270,7 +2270,7 @@ namespace Nop.Services.Catalog
         /// <returns>Result</returns>
         public virtual Warehouse GetWarehousesById(int warehouseId)
         {
-            return _warehouseRepository.GetById(warehouseId, cache => default);
+            return _warehouseRepository.GetById(warehouseId, NopEntityCacheDefaults<Warehouse>.DefaultCacheKey);
         }
 
         /// <summary>

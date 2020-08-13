@@ -21,6 +21,7 @@ namespace Nop.Services.Common
         private readonly ICountryService _countryService;
         private readonly IRepository<Address> _addressRepository;
         private readonly IStateProvinceService _stateProvinceService;
+        private readonly IStaticCacheManager _staticCacheManager;
 
         #endregion
 
@@ -31,7 +32,8 @@ namespace Nop.Services.Common
             IAddressAttributeService addressAttributeService,
             ICountryService countryService,
             IRepository<Address> addressRepository,
-            IStateProvinceService stateProvinceService)
+            IStateProvinceService stateProvinceService,
+            IStaticCacheManager staticCacheManager)
         {
             _addressSettings = addressSettings;
             _addressAttributeParser = addressAttributeParser;
@@ -39,6 +41,7 @@ namespace Nop.Services.Common
             _countryService = countryService;
             _addressRepository = addressRepository;
             _stateProvinceService = stateProvinceService;
+            _staticCacheManager = staticCacheManager;
         }
 
         #endregion
@@ -95,8 +98,7 @@ namespace Nop.Services.Common
         /// <returns>Address</returns>
         public virtual Address GetAddressById(int addressId)
         {
-            return _addressRepository.GetById(addressId,
-                cache => cache.PrepareKeyForShortTermCache(NopEntityCacheDefaults<Address>.ByIdCacheKey, addressId));
+            return _addressRepository.GetById(addressId, _staticCacheManager.PrepareKeyForShortTermCache(NopEntityCacheDefaults<Address>.ByIdCacheKey, addressId));
         }
 
         /// <summary>

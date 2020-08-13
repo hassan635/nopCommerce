@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Directory;
 using Nop.Data;
 
@@ -53,7 +54,7 @@ namespace Nop.Services.Directory
         /// <returns>Measure dimension</returns>
         public virtual MeasureDimension GetMeasureDimensionById(int measureDimensionId)
         {
-            return _measureDimensionRepository.GetById(measureDimensionId, cache => default);
+            return _measureDimensionRepository.GetById(measureDimensionId, NopEntityCacheDefaults<MeasureDimension>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -207,7 +208,7 @@ namespace Nop.Services.Directory
         /// <returns>Measure weight</returns>
         public virtual MeasureWeight GetMeasureWeightById(int measureWeightId)
         {
-            return _measureWeightRepository.GetById(measureWeightId, cache => default);
+            return _measureWeightRepository.GetById(measureWeightId, NopEntityCacheDefaults<MeasureWeight>.DefaultCacheKey);
         }
 
         /// <summary>

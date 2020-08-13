@@ -87,7 +87,7 @@ namespace Nop.Services.Security
         /// <returns>Permission</returns>
         public virtual PermissionRecord GetPermissionRecordById(int permissionId)
         {
-            return _permissionRecordRepository.GetById(permissionId, cache => default);
+            return _permissionRecordRepository.GetById(permissionId, NopEntityCacheDefaults<PermissionRecord>.DefaultCacheKey);
         }
 
         /// <summary>

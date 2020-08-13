@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Localization;
 using Nop.Core.Events;
@@ -334,7 +335,7 @@ namespace Nop.Services.Authentication.External
         /// <returns>Result</returns>
         public virtual ExternalAuthenticationRecord GetExternalAuthenticationRecordById(int externalAuthenticationRecordId)
         {
-            return _externalAuthenticationRecordRepository.GetById(externalAuthenticationRecordId, cache => default);
+            return _externalAuthenticationRecordRepository.GetById(externalAuthenticationRecordId, NopEntityCacheDefaults<ExternalAuthenticationRecord>.DefaultCacheKey);
         }
 
         /// <summary>

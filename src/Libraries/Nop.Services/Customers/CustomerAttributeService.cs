@@ -64,7 +64,7 @@ namespace Nop.Services.Customers
         /// <returns>Customer attribute</returns>
         public virtual CustomerAttribute GetCustomerAttributeById(int customerAttributeId)
         {
-            return _customerAttributeRepository.GetById(customerAttributeId, cache => default);
+            return _customerAttributeRepository.GetById(customerAttributeId, NopEntityCacheDefaults<CustomerAttribute>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Nop.Services.Customers
         /// <returns>Customer attribute value</returns>
         public virtual CustomerAttributeValue GetCustomerAttributeValueById(int customerAttributeValueId)
         {
-            return _customerAttributeValueRepository.GetById(customerAttributeValueId, cache => default);
+            return _customerAttributeValueRepository.GetById(customerAttributeValueId, NopEntityCacheDefaults<CustomerAttributeValue>.DefaultCacheKey);
         }
 
         /// <summary>

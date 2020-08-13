@@ -147,7 +147,7 @@ namespace Nop.Services.Directory
         /// <returns>Country</returns>
         public virtual Country GetCountryById(int countryId)
         {
-            return _countryRepository.GetById(countryId, cache => default);
+            return _countryRepository.GetById(countryId, NopEntityCacheDefaults<Country>.DefaultCacheKey);
         }
 
         /// <summary>

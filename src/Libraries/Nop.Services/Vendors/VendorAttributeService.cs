@@ -54,7 +54,7 @@ namespace Nop.Services.Vendors
         /// <returns>Vendor attribute</returns>
         public virtual VendorAttribute GetVendorAttributeById(int vendorAttributeId)
         {
-            return _vendorAttributeRepository.GetById(vendorAttributeId, cache => default);
+            return _vendorAttributeRepository.GetById(vendorAttributeId, NopEntityCacheDefaults<VendorAttribute>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Nop.Services.Vendors
         /// <returns>Vendor attribute value</returns>
         public virtual VendorAttributeValue GetVendorAttributeValueById(int vendorAttributeValueId)
         {
-            return _vendorAttributeValueRepository.GetById(vendorAttributeValueId, cache => default);
+            return _vendorAttributeValueRepository.GetById(vendorAttributeValueId, NopEntityCacheDefaults<VendorAttributeValue>.DefaultCacheKey);
         }
 
         /// <summary>

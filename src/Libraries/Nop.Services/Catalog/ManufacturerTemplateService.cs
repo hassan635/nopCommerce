@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Catalog;
 using Nop.Data;
 
@@ -59,7 +60,7 @@ namespace Nop.Services.Catalog
         /// <returns>Manufacturer template</returns>
         public virtual ManufacturerTemplate GetManufacturerTemplateById(int manufacturerTemplateId)
         {
-            return _manufacturerTemplateRepository.GetById(manufacturerTemplateId, cache => default);
+            return _manufacturerTemplateRepository.GetById(manufacturerTemplateId, NopEntityCacheDefaults<ManufacturerTemplate>.DefaultCacheKey);
         }
 
         /// <summary>

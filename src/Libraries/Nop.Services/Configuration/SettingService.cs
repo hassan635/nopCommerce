@@ -182,7 +182,7 @@ namespace Nop.Services.Configuration
         /// <returns>Setting</returns>
         public virtual Setting GetSettingById(int settingId)
         {
-            return _settingRepository.GetById(settingId, cache => default);
+            return _settingRepository.GetById(settingId, NopEntityCacheDefaults<Setting>.DefaultCacheKey);
         }
 
         /// <summary>

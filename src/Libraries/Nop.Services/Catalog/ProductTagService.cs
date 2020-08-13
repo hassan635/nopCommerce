@@ -171,7 +171,7 @@ namespace Nop.Services.Catalog
         /// <returns>Product tag</returns>
         public virtual ProductTag GetProductTagById(int productTagId)
         {
-            return _productTagRepository.GetById(productTagId, cache => default);
+            return _productTagRepository.GetById(productTagId, NopEntityCacheDefaults<ProductTag>.DefaultCacheKey);
         }
 
         /// <summary>

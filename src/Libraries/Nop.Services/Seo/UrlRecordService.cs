@@ -1155,7 +1155,7 @@ namespace Nop.Services.Seo
         /// <returns>URL record</returns>
         public virtual UrlRecord GetUrlRecordById(int urlRecordId)
         {
-            return _urlRecordRepository.GetById(urlRecordId, cache => default);
+            return _urlRecordRepository.GetById(urlRecordId, NopEntityCacheDefaults<UrlRecord>.DefaultCacheKey);
         }
 
         /// <summary>

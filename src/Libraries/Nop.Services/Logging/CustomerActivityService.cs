@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Logging;
 using Nop.Data;
@@ -89,7 +90,7 @@ namespace Nop.Services.Logging
         /// <returns>Activity log type item</returns>
         public virtual ActivityLogType GetActivityTypeById(int activityLogTypeId)
         {
-            return _activityLogTypeRepository.GetById(activityLogTypeId, cache => default);
+            return _activityLogTypeRepository.GetById(activityLogTypeId, NopEntityCacheDefaults<ActivityLogType>.DefaultCacheKey);
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Customers;
 using Nop.Data;
@@ -141,7 +142,7 @@ namespace Nop.Services.Catalog
         /// <returns>Subscription</returns>
         public virtual BackInStockSubscription GetSubscriptionById(int subscriptionId)
         {
-            return _backInStockSubscriptionRepository.GetById(subscriptionId, cache => default);
+            return _backInStockSubscriptionRepository.GetById(subscriptionId, NopEntityCacheDefaults<BackInStockSubscription>.DefaultCacheKey);
         }
 
         /// <summary>

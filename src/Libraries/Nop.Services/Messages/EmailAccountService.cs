@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Messages;
 using Nop.Data;
 
@@ -111,7 +112,7 @@ namespace Nop.Services.Messages
         /// <returns>Email account</returns>
         public virtual EmailAccount GetEmailAccountById(int emailAccountId)
         {
-            return _emailAccountRepository.GetById(emailAccountId, cache => default);
+            return _emailAccountRepository.GetById(emailAccountId, NopEntityCacheDefaults<EmailAccount>.DefaultCacheKey);
         }
 
         /// <summary>

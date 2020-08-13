@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Stores;
 using Nop.Data;
 
@@ -65,7 +66,7 @@ namespace Nop.Services.Stores
         /// <returns>Store</returns>
         public virtual Store GetStoreById(int storeId)
         {
-            return _storeRepository.GetById(storeId, cache => default);
+            return _storeRepository.GetById(storeId, NopEntityCacheDefaults<Store>.DefaultCacheKey);
         }
 
         /// <summary>

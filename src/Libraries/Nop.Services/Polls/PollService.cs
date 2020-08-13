@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Polls;
 using Nop.Core.Domain.Stores;
@@ -49,7 +50,7 @@ namespace Nop.Services.Polls
         /// <returns>Poll</returns>
         public virtual Poll GetPollById(int pollId)
         {
-            return _pollRepository.GetById(pollId, cache => default);
+            return _pollRepository.GetById(pollId, NopEntityCacheDefaults<Poll>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -152,7 +153,7 @@ namespace Nop.Services.Polls
         /// <returns>Poll answer</returns>
         public virtual PollAnswer GetPollAnswerById(int pollAnswerId)
         {
-            return _pollAnswerRepository.GetById(pollAnswerId, cache => default);
+            return _pollAnswerRepository.GetById(pollAnswerId, NopEntityCacheDefaults<PollAnswer>.DefaultCacheKey);
         }
 
         /// <summary>

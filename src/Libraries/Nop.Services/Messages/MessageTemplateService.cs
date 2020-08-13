@@ -88,7 +88,7 @@ namespace Nop.Services.Messages
         /// <returns>Message template</returns>
         public virtual MessageTemplate GetMessageTemplateById(int messageTemplateId)
         {
-            return _messageTemplateRepository.GetById(messageTemplateId, cache => default);
+            return _messageTemplateRepository.GetById(messageTemplateId, NopEntityCacheDefaults<MessageTemplate>.DefaultCacheKey);
         }
 
         /// <summary>

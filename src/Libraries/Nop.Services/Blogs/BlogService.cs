@@ -62,7 +62,7 @@ namespace Nop.Services.Blogs
         /// <returns>Blog post</returns>
         public virtual BlogPost GetBlogPostById(int blogPostId)
         {
-            return _blogPostRepository.GetById(blogPostId, cache => default);
+            return _blogPostRepository.GetById(blogPostId, NopEntityCacheDefaults<BlogPost>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -322,7 +322,7 @@ namespace Nop.Services.Blogs
         /// <returns>Blog comment</returns>
         public virtual BlogComment GetBlogCommentById(int blogCommentId)
         {
-            return _blogCommentRepository.GetById(blogCommentId, cache => default);
+            return _blogCommentRepository.GetById(blogCommentId, NopEntityCacheDefaults<BlogComment>.DefaultCacheKey);
         }
 
         /// <summary>

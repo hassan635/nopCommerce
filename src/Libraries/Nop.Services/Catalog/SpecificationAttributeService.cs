@@ -51,7 +51,7 @@ namespace Nop.Services.Catalog
         /// <returns>Specification attribute</returns>
         public virtual SpecificationAttribute GetSpecificationAttributeById(int specificationAttributeId)
         {
-            return _specificationAttributeRepository.GetById(specificationAttributeId, cache => default);
+            return _specificationAttributeRepository.GetById(specificationAttributeId, NopEntityCacheDefaults<SpecificationAttribute>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Nop.Services.Catalog
         /// <returns>Specification attribute option</returns>
         public virtual SpecificationAttributeOption GetSpecificationAttributeOptionById(int specificationAttributeOptionId)
         {
-            return _specificationAttributeOptionRepository.GetById(specificationAttributeOptionId, cache => default);
+            return _specificationAttributeOptionRepository.GetById(specificationAttributeOptionId, NopEntityCacheDefaults<SpecificationAttributeOption>.DefaultCacheKey);
         }
 
         /// <summary>

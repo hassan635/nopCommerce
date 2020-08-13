@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
@@ -152,7 +153,7 @@ namespace Nop.Services.Shipping
         /// <returns>Shipping method</returns>
         public virtual ShippingMethod GetShippingMethodById(int shippingMethodId)
         {
-            return _shippingMethodRepository.GetById(shippingMethodId, cache => default);
+            return _shippingMethodRepository.GetById(shippingMethodId, NopEntityCacheDefaults<ShippingMethod>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -278,7 +279,7 @@ namespace Nop.Services.Shipping
         /// <returns>Warehouse</returns>
         public virtual Warehouse GetWarehouseById(int warehouseId)
         {
-            return _warehouseRepository.GetById(warehouseId, cache => default);
+            return _warehouseRepository.GetById(warehouseId, NopEntityCacheDefaults<Warehouse>.DefaultCacheKey);
         }
 
         /// <summary>

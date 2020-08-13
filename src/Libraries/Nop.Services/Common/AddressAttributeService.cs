@@ -64,7 +64,7 @@ namespace Nop.Services.Common
         /// <returns>Address attribute</returns>
         public virtual AddressAttribute GetAddressAttributeById(int addressAttributeId)
         {
-            return _addressAttributeRepository.GetById(addressAttributeId, cache => default);
+            return _addressAttributeRepository.GetById(addressAttributeId, NopEntityCacheDefaults<AddressAttribute>.DefaultCacheKey);
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Nop.Services.Common
         /// <returns>Address attribute value</returns>
         public virtual AddressAttributeValue GetAddressAttributeValueById(int addressAttributeValueId)
         {
-            return _addressAttributeValueRepository.GetById(addressAttributeValueId, cache => default);
+            return _addressAttributeValueRepository.GetById(addressAttributeValueId, NopEntityCacheDefaults<AddressAttributeValue>.DefaultCacheKey);
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Messages;
 using Nop.Data;
 using Nop.Services.Customers;
@@ -82,7 +83,7 @@ namespace Nop.Services.Messages
         /// <returns>Campaign</returns>
         public virtual Campaign GetCampaignById(int campaignId)
         {
-            return _campaignRepository.GetById(campaignId, cache => default);
+            return _campaignRepository.GetById(campaignId, NopEntityCacheDefaults<Campaign>.DefaultCacheKey);
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Topics;
 using Nop.Data;
 
@@ -59,7 +60,7 @@ namespace Nop.Services.Topics
         /// <returns>Topic template</returns>
         public virtual TopicTemplate GetTopicTemplateById(int topicTemplateId)
         {
-            return _topicTemplateRepository.GetById(topicTemplateId, cache => default);
+            return _topicTemplateRepository.GetById(topicTemplateId, NopEntityCacheDefaults<TopicTemplate>.DefaultCacheKey);
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Messages;
 using Nop.Data;
 
@@ -72,7 +73,7 @@ namespace Nop.Services.Messages
         /// <returns>Queued email</returns>
         public virtual QueuedEmail GetQueuedEmailById(int queuedEmailId)
         {
-            return _queuedEmailRepository.GetById(queuedEmailId, cache => default);
+            return _queuedEmailRepository.GetById(queuedEmailId, NopEntityCacheDefaults<QueuedEmail>.DefaultCacheKey);
         }
 
         /// <summary>

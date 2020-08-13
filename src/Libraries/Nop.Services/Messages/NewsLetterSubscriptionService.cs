@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Nop.Core;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Messages;
 using Nop.Core.Events;
@@ -159,7 +160,7 @@ namespace Nop.Services.Messages
         /// <returns>NewsLetter subscription</returns>
         public virtual NewsLetterSubscription GetNewsLetterSubscriptionById(int newsLetterSubscriptionId)
         {
-            return _subscriptionRepository.GetById(newsLetterSubscriptionId, cache => default);
+            return _subscriptionRepository.GetById(newsLetterSubscriptionId, NopEntityCacheDefaults<NewsLetterSubscription>.DefaultCacheKey);
         }
 
         /// <summary>

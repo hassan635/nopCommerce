@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Nop.Core.Caching;
 using Nop.Core.Domain.Tax;
 using Nop.Data;
 
@@ -59,7 +60,7 @@ namespace Nop.Services.Tax
         /// <returns>Tax category</returns>
         public virtual TaxCategory GetTaxCategoryById(int taxCategoryId)
         {
-            return _taxCategoryRepository.GetById(taxCategoryId, cache => default);
+            return _taxCategoryRepository.GetById(taxCategoryId, NopEntityCacheDefaults<TaxCategory>.DefaultCacheKey);
         }
 
         /// <summary>
